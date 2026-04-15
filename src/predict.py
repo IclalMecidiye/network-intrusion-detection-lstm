@@ -270,6 +270,18 @@ def predict_from_csv(csv_path, model_type="lstm"):
         ).values
         df = df.drop(columns=[label_col])
 
+    # Egitim sirasinda kaldirilan gereksiz sutunlari kaldir
+    # (clean_data ile ayni filtreleme)
+    columns_to_drop = []
+    for col in df.columns:
+        col_lower = col.lower()
+        if any(keyword in col_lower for keyword in
+               ["flow id", "source ip", "destination ip",
+                "source port", "destination port", "timestamp"]):
+            columns_to_drop.append(col)
+    if columns_to_drop:
+        df = df.drop(columns=columns_to_drop, errors="ignore")
+
     # Sayisal olmayan sutunlari kaldir
     numeric_cols = df.select_dtypes(include=[np.number]).columns
     X = df[numeric_cols].values
