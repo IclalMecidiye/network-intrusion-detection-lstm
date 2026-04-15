@@ -41,6 +41,7 @@ network-intrusion-detection-lstm/
 │   ├── evaluate.py                # Değerlendirme ve görselleştirme
 │   ├── train.py                   # Ana eğitim scripti
 │   └── predict.py                 # Gerçek zamanlı tahmin modülü
+├── app.py                         # Streamlit web arayüzü
 ├── data/                          # CICIDS2017 veri seti (CSV dosyaları)
 ├── models/                        # Eğitilmiş modeller
 ├── outputs/                       # Grafikler ve raporlar
@@ -116,7 +117,19 @@ python src/train.py --sample-size 10000
 python src/train.py --multiclass
 ```
 
-### Gerçek Zamanlı Tahmin
+### Web Arayüzü (Streamlit)
+
+```bash
+# Web arayüzünü başlatın
+streamlit run app.py
+```
+
+Tarayıcınızda `http://localhost:8501` adresi otomatik açılacaktır. Web arayüzü ile:
+- **CSV dosyası yükleyerek** saldırı tespiti yapabilirsiniz
+- **Model eğitimi** başlatabilirsiniz
+- **Eğitim sonuçlarını ve grafikleri** görüntüleyebilirsiniz
+
+### Gerçek Zamanlı Tahmin (Terminal)
 
 ```bash
 # CSV dosyasından tahmin
