@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+env/
+.env
+
+# Data files (too large for git)
+data/*.csv
+data/*.zip
+data/*.gz
+
+# Model files (too large for git)
+models/*.h5
+models/*.pkl
+models/*.joblib
+models/*.keras
+
+# Output files
+outputs/*.png
+outputs/*.jpg
+outputs/*.csv
+outputs/*.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
